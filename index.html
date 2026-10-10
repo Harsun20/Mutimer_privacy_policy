@@ -1,49 +1,445 @@
-<html>Privacy Policy for Mutimer
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Effective Date: October 10, 2026
-Last Updated: October 10, 2026
+    <title>Privacy Policy | Mutimer</title>
 
-Mutimer ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how Mutimer handles your information when you use our mobile application (the "App").
+    <meta
+        name="description"
+        content="Read the Mutimer Privacy Policy to understand how your timetable data, device permissions, and privacy are handled."
+    />
 
-1. Information Collection and Storage
-Mutimer is designed from the ground up as a privacy-first, offline-capable application.
+    <style>
+        :root {
+            --primary: #635bff;
+            --primary-light: #eeedff;
+            --background: #f6f7fb;
+            --surface: #ffffff;
+            --text: #202334;
+            --muted: #666b7a;
+            --border: #e5e7ef;
+            --warning-bg: #fff7e6;
+            --warning-border: #f0b84b;
+        }
 
-• Timetables & Schedules: All class periods, subjects, schedules, special day overrides, and ringer mode preferences are stored 100% locally on your device using encrypted Android Room database architecture and DataStore preferences. We do not transmit, back up, or store your timetable data on any external server or cloud platform.
-• No Personal Identifiable Information (PII): We do not collect, request, record, or store personal information such as your name, email address, phone number, location, or contacts.
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-2. Device Permissions & Sensor Usage
-To provide precise Do Not Disturb (DND) automation and intuitive interface features, Mutimer requests the following device permissions and hardware access:
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.75;
+            padding: 40px 18px;
+        }
 
-• Do Not Disturb Access (ACCESS_NOTIFICATION_POLICY): Used strictly to automatically toggle your device's ringer mode (Vibrate, Silent, Normal) during your scheduled class periods and breaks according to your preferences.
-• Exact Alarms (SCHEDULE_EXACT_ALARM): Used to schedule precise system alarms so that ringer mode adjustments occur exact to the second when your classes begin and end.
-• Post Notifications (POST_NOTIFICATIONS): Used to display essential foreground system notifications, automation status updates, and post-class overtime alerts.
-• Boot Receiver (RECEIVE_BOOT_COMPLETED): Used to automatically reschedule your timetable alarms after your device reboots.
-• Motion Sensors (Accelerometer & Gyroscope): Used exclusively on-device to detect device tilt and roll for the dynamic "Auto" floating action button positioning feature. Sensor telemetry is processed locally in real time and is never recorded, saved, or transmitted off your device.
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(25, 30, 60, 0.06);
+        }
 
-3. Third-Party Services & Analytics
-Mutimer utilizes minimal, industry-standard Third-Party Software Development Kits (SDKs) solely to maintain application security and app stability:
+        .header {
+            padding: 42px 48px;
+            background: linear-gradient(135deg, #635bff, #8178ff);
+            color: white;
+        }
 
-• Google Play Services & Firebase App Check: Used exclusively for app integrity, anti-tampering verification, and system font rendering. These security services may process basic device diagnostic metadata (such as Android version and safety attestation tokens) strictly in accordance with Google's Privacy Policy (https://policies.google.com/privacy).
-• No Advertising or Commercial Tracking: Mutimer contains no third-party advertisements, no behavioral tracking analytics, and zero integrations with data brokers or marketing platforms.
+        .brand {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
 
-4. Data Sharing, Sale, and Transfer
-Because we do not collect or store your data on external servers, we do not sell, trade, rent, lease, or transfer any user data to third parties under any circumstances.
+        h1 {
+            font-size: clamp(30px, 5vw, 42px);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
 
-5. Children's Privacy
-Mutimer is intended for general student audiences, primarily high school, college, and university students. The App does not knowingly collect or solicit personal information from children under the age of 13. If you believe a child has provided us with personal information, please contact us so we can take immediate corrective action.
+        .header p {
+            font-size: 15px;
+            opacity: 0.9;
+        }
 
-6. Your Data Control & Deletion
-You retain 100% ownership and control over your data:
-• You can create, modify, or permanently delete any timetable entry directly within the App.
-• Clearing app data or uninstalling Mutimer through Android System Settings immediately and permanently deletes all stored schedules, settings, and database files from your device.
+        .content {
+            padding: 38px 48px 48px;
+        }
 
-7. Changes to This Privacy Policy
-We may update our Privacy Policy from time to time to reflect app updates or regulatory changes. Any updates will be published within the App or on our official store listing page with a revised "Last Updated" date.
+        .intro {
+            color: var(--muted);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
 
-8. Contact Us
-If you have any questions, feedback, or inquiries regarding this Privacy Policy or Mutimer's privacy practices, please reach out to us at:
+        section {
+            margin-bottom: 32px;
+        }
 
-NOTE: Mutimer is NOT responsible for any mistakes in the schedule made by generative AI.
+        h2 {
+            font-size: 21px;
+            line-height: 1.4;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
 
-• Developer Support Email: harsunstudios@gmail.com
-• Developer: Mutimer Development Team </html>
+        p {
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 4px;
+        }
+
+        strong {
+            color: #292d40;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .notice {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin: 28px 0;
+        }
+
+        .notice strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .contact-card {
+            background: var(--primary-light);
+            padding: 22px 24px;
+            border-radius: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 22px 48px;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            .container {
+                border-radius: 14px;
+            }
+
+            .header {
+                padding: 30px 24px;
+            }
+
+            .content {
+                padding: 28px 24px;
+            }
+
+            .footer {
+                padding: 20px 24px;
+            }
+
+            h2 {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <header class="header">
+            <span class="brand">Mutimer</span>
+            <h1>Privacy Policy</h1>
+            <p>Effective Date: October 10, 2026</p>
+            <p>Last Updated: October 10, 2026</p>
+        </header>
+
+        <div class="content">
+
+            <p class="intro">
+                Mutimer ("we", "our", or "us") is committed to protecting
+                your privacy. This Privacy Policy explains how Mutimer
+                handles your information when you use our mobile
+                application (the "App").
+            </p>
+
+            <section>
+                <h2>1. Information Collection and Storage</h2>
+
+                <p>
+                    Mutimer is designed from the ground up as a
+                    privacy-first, offline-capable application.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Timetables and Schedules:</strong>
+                        All class periods, subjects, schedules, special
+                        day overrides, and ringer mode preferences are
+                        stored locally on your device using encrypted
+                        Android Room database architecture and DataStore
+                        preferences. We do not transmit, back up, or
+                        store your timetable data on any external server
+                        or cloud platform.
+                    </li>
+
+                    <li>
+                        <strong>No Personally Identifiable Information:</strong>
+                        We do not collect, request, record, or store
+                        personal information such as your name, email
+                        address, phone number, location, or contacts.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>2. Device Permissions and Sensor Usage</h2>
+
+                <p>
+                    To provide precise Do Not Disturb (DND) automation
+                    and intuitive interface features, Mutimer requests
+                    the following device permissions and hardware access:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Do Not Disturb Access
+                        (ACCESS_NOTIFICATION_POLICY):</strong>
+                        Used to automatically adjust your device's
+                        ringer mode (Vibrate, Silent, or Normal) during
+                        scheduled class periods and breaks according
+                        to your preferences.
+                    </li>
+
+                    <li>
+                        <strong>Exact Alarms (SCHEDULE_EXACT_ALARM):</strong>
+                        Used to schedule precise system alarms so that
+                        ringer mode adjustments occur at the scheduled
+                        start and end times of your classes.
+                    </li>
+
+                    <li>
+                        <strong>Post Notifications (POST_NOTIFICATIONS):</strong>
+                        Used to display essential notifications,
+                        automation status updates, and post-class
+                        overtime alerts.
+                    </li>
+
+                    <li>
+                        <strong>Boot Receiver (RECEIVE_BOOT_COMPLETED):</strong>
+                        Used to reschedule timetable alarms after your
+                        device reboots.
+                    </li>
+
+                    <li>
+                        <strong>Motion Sensors (Accelerometer and
+                        Gyroscope):</strong>
+                        Used exclusively on-device to detect device
+                        tilt and roll for the dynamic "Auto" floating
+                        action button positioning feature. Sensor data
+                        is processed locally in real time and is not
+                        recorded, saved, or transmitted off your device.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. Third-Party Services and Analytics</h2>
+
+                <p>
+                    Mutimer utilizes third-party software development
+                    tools and services to support app security and
+                    stability.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Google Play Services and Firebase
+                        App Check:</strong>
+                        Used for app integrity verification, protection
+                        against tampering, and other app functionality
+                        as implemented. These services may process
+                        certain device or diagnostic information,
+                        such as Android version information and
+                        app-integrity attestation tokens, subject to
+                        the applicable Google privacy terms.
+                        Read the
+                        <a
+                            href="https://policies.google.com/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Google Privacy Policy</a>.
+                    </li>
+
+                    <li>
+                        <strong>No Advertising or Commercial Tracking:</strong>
+                        Mutimer does not include third-party
+                        advertisements or behavioral advertising
+                        analytics, and does not integrate with
+                        data brokers or marketing platforms.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Data Sharing, Sale, and Transfer</h2>
+
+                <p>
+                    Mutimer does not upload your timetable data to
+                    external servers. We do not sell, trade, rent,
+                    or lease your personal information.
+                </p>
+
+                <p>
+                    Third-party services integrated into the App may
+                    process limited technical information as described
+                    in Section 3 and under their own applicable privacy
+                    policies.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Children's Privacy</h2>
+
+                <p>
+                    Mutimer is intended for a general student audience,
+                    including high school, college, and university
+                    students. The App does not knowingly collect or
+                    solicit personal information from children under
+                    the age of 13.
+                </p>
+
+                <p>
+                    If you believe a child has provided personal
+                    information to us, please contact us so that we
+                    can investigate and take appropriate corrective
+                    action.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Your Data Control and Deletion</h2>
+
+                <p>
+                    You retain control over the timetable information
+                    stored locally on your device.
+                </p>
+
+                <ul>
+                    <li>
+                        You can create, modify, or delete timetable
+                        entries directly within the App.
+                    </li>
+
+                    <li>
+                        Clearing the App's data or uninstalling Mutimer
+                        through Android System Settings removes locally
+                        stored schedules, settings, and database files,
+                        subject to Android system behavior and any
+                        separate backups managed by you or your device.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>7. AI-Generated Timetable Disclaimer</h2>
+
+                <div class="notice">
+                    <strong>Important Notice</strong>
+                    Mutimer is not responsible for errors, omissions,
+                    or inaccuracies in timetables generated by
+                    generative AI tools or entered by users. Always
+                    verify your timetable, class timings, and special
+                    day schedules before enabling automation.
+                </div>
+            </section>
+
+            <section>
+                <h2>8. Changes to This Privacy Policy</h2>
+
+                <p>
+                    We may update this Privacy Policy from time to time
+                    to reflect changes to the App, our practices, or
+                    applicable legal requirements. Updates will be
+                    published within the App or on its official store
+                    listing page, along with a revised "Last Updated"
+                    date.
+                </p>
+            </section>
+
+            <section>
+                <h2>9. Contact Us</h2>
+
+                <p>
+                    If you have questions, feedback, or concerns about
+                    this Privacy Policy or Mutimer's privacy practices,
+                    please contact us using the details below.
+                </p>
+
+                <div class="contact-card">
+                    <p>
+                        <strong>Developer Support Email:</strong><br>
+                        <a href="mailto:harsunstudios@gmail.com">
+                            harsunstudios@gmail.com
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Developer:</strong>
+                        Mutimer Development Team
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="footer">
+            &copy; 2026 Mutimer. All rights reserved.
+        </footer>
+
+    </main>
+</body>
+</html>
+```
